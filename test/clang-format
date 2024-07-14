@@ -1,0 +1,17 @@
+---
+AllowShortEnumsOnASingleLine: false
+AlwaysBreakAfterDefinitionReturnType: None
+AlignArrayOfStructures: Right
+AlignConsecutiveAssignments:
+  Enabled: true
+AlignTrailingComments: false
+AlignConsecutiveMacros:
+  Enabled: true
+  AcrossEmptyLines: true
+  AcrossComments: true
+AlignEscapedNewlines: Left
+BreakBeforeBraces: Allman
+IndentWidth: 4
+UseTab: Never
+SortIncludes: Never
+AlwaysBreakAfterReturnType: None

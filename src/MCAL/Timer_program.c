@@ -427,41 +427,41 @@ E_Status Timer_u8SetCallBack(void (*Copy_pvCallBackFunc)(void), uint8_t copy_u8P
     return Local_ErrorStatus;
 }
 
-//  void __vector_6(void) __attribute__((signal));
-//  void __vector_6(void)
-//  {
-//     if(Timer_pvCallBackFunc[TIMER1_INPUT_CAPTURE_INTERRUPT_ID] != NULL)
-//     {
-//         Timer_pvCallBackFunc[TIMER1_INPUT_CAPTURE_INTERRUPT_ID];
-//     }
-//  }
+ void __vector_6(void) __attribute__((signal));
+ void __vector_6(void)
+ {
+    if(Timer_pvCallBackFunc[TIMER1_INPUT_CAPTURE_INTERRUPT_ID] != NULL)
+    {
+        Timer_pvCallBackFunc[TIMER1_INPUT_CAPTURE_INTERRUPT_ID];
+    }
+ }
 
-// void __vector_11(void) __attribute__((signal));
-// void __vector_11(void)
-// {
-//     static uint16_t u16local_counter = 0;
-//     u16local_counter += 1;
+void __vector_11(void) __attribute__((signal));
+void __vector_11(void)
+{
+    static uint16_t u16local_counter = 0;
+    u16local_counter += 1;
 
-//     if (u16local_counter == ceil(Timer0_u16OverFlowNum))
-//     {
-//         TCNT0 = Timer0_u16Preload;
-//         Timer_pvCallBackFunc[TIMER0_OVERFLOW_INTERRUPT_ID]();
-//         u16local_counter = 0;
-//     if (Timer0_u8FunctionRepetition == TIMER0_OVERFLOW_ONCE)
-//     {
-//         Timer_u8InterruptDisable(TIMER0_OVERFLOW_INTERRUPT_ID);
-//     }
-//     }
-// }
+    if (u16local_counter == ceil(Timer0_u16OverFlowNum))
+    {
+        TCNT0 = Timer0_u16Preload;
+        Timer_pvCallBackFunc[TIMER0_OVERFLOW_INTERRUPT_ID]();
+        u16local_counter = 0;
+    if (Timer0_u8FunctionRepetition == TIMER0_OVERFLOW_ONCE)
+    {
+        Timer_u8InterruptDisable(TIMER0_OVERFLOW_INTERRUPT_ID);
+    }
+    }
+}
 
-// void __vector_10(void) __attribute__((signal));
-// void __vector_10(void)
-// {
-//     static uint16_t u16local_counter = 0;
-//     u16local_counter += 1;
-//     if (u16local_counter == Timer0_u16OverFlowNum)
-//     {
-//         Timer_pvCallBackFunc[TIMER0_OUTPUT_COMPARE_MATCH_INTERRUPT_ID]();
-//         u16local_counter = 0;
-//     }
-// }
+void __vector_10(void) __attribute__((signal));
+void __vector_10(void)
+{
+    static uint16_t u16local_counter = 0;
+    u16local_counter += 1;
+    if (u16local_counter == Timer0_u16OverFlowNum)
+    {
+        Timer_pvCallBackFunc[TIMER0_OUTPUT_COMPARE_MATCH_INTERRUPT_ID]();
+        u16local_counter = 0;
+    }
+}
